@@ -8,6 +8,8 @@ var hitLeft = 1;
 
 function moveRight () {
     console.log('Moving the Image...');
+    var margin = parseInt(img.style.marginLeft);
+    console.log(margin);
     if (parseInt(img.style.marginLeft) < 800 && hitRight === 0 && hitLeft == 1){
         console.log('Moving the Image to right...');
         marginLeft = marginLeft + 10;
