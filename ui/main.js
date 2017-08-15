@@ -36,7 +36,7 @@ img.onclick = function () {
     var interval = setInterval(moveRight, 50);
 };
 
-var submit = document.getElementById('name');
+var submit = document.getElementById('submit_button');
 
 submit.onclick = function () {
     var request = new XMLHttpRequest();
