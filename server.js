@@ -5,21 +5,55 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article One | Nishanth Kumar Nedunuri',
-    heading: 'Article One',
-    date: 'Aug 15, 2017',
-    content: `
-        <p>
-            This is the first article. This page contains the content of Article One.
-        </p>
-        <p>
-            This is the first article. This page contains the content of Article One.
-        </p>
-        <p>
-            This is the first article. This page contains the content of Article One.
-        </p>
-    `
+var articles = {
+    'article-one' : {
+        title: 'Article One | Nishanth Kumar Nedunuri',
+        heading: 'Article One',
+        date: 'Aug 15, 2017',
+        content: `
+            <p>
+                This is the first article. This page contains the content of Article One.
+            </p>
+            <p>
+                This is the first article. This page contains the content of Article One.
+            </p>
+            <p>
+                This is the first article. This page contains the content of Article One.
+            </p>
+        `
+    },
+    'article-two' : {
+        title: 'Article Two | Nishanth Kumar Nedunuri',
+        heading: 'Article Two',
+        date: 'Aug 16, 2017',
+        content: `
+            <p>
+                This is the second article. This page contains the content of Article Two.
+            </p>
+            <p>
+                This is the second article. This page contains the content of Article Two.
+            </p>
+            <p>
+                This is the second article. This page contains the content of Article Two.
+            </p>
+        `
+    },
+    'article-three' : {
+        title: 'Article Three | Nishanth Kumar Nedunuri',
+        heading: 'Article Three',
+        date: 'Aug 17, 2017',
+        content: `
+            <p>
+                This is the third article. This page contains the content of Article Three.
+            </p>
+            <p>
+                This is the third article. This page contains the content of Article Three.
+            </p>
+            <p>
+                This is the third article. This page contains the content of Article Three.
+            </p>
+        `
+    }
 };
 
 function createTemplate (data) {
@@ -63,16 +97,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
-});
-
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get(':articleName', function (req, res) {
+  var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
