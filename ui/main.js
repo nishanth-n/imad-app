@@ -7,6 +7,7 @@ var hitRight = 0;
 var hitLeft = 1;
 
 function moveRight () {
+    console.log('Moving the Image...');
     if (img.style.marginLeft < 800 && hitRight === 0 && hitLeft == 1){
         marginLeft = marginLeft + 10;
         img.style.marginLeft = marginLeft + 'px';
@@ -27,4 +28,5 @@ function moveRight () {
 
 img.onclick = function () {
     var interval = setInterval(moveRight, 50);
+    console.log('Moving the Image');
 };
