@@ -11,7 +11,7 @@ function moveRight () {
 //    console.log(img.style.padding);
 //    var margin = parseInt(img.style.padding);
 //    console.log(margin);
-    if (marginLeft < 800 && hitRight === 0 && hitLeft == 1){
+    if (marginLeft < 1000 && hitRight === 0 && hitLeft == 1){
 //        console.log('Moving the Image to right...');
         marginLeft = marginLeft + 10;
         img.style.marginLeft = marginLeft + 'px';
