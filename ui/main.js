@@ -20,7 +20,7 @@ function moveRight () {
         hitRight = 1;
         hitLeft = 0;
     }
-    if (marginLeft > 50 && hitRight == 1 && hitLeft === 0) {
+    if (marginLeft > -1000 && hitRight == 1 && hitLeft === 0) {
         console.log('Moving the Image to Left...');
         marginLeft = marginLeft - 10;
         img.style.marginLeft = marginLeft + 'px';
