@@ -11,16 +11,16 @@ function moveRight () {
 //    console.log(img.style.padding);
 //    var margin = parseInt(img.style.padding);
 //    console.log(margin);
-//    if (parseInt(img.style.marginLeft) < 800 && hitRight === 0 && hitLeft == 1){
+    if (marginLeft < 800 && hitRight === 0 && hitLeft == 1){
 //        console.log('Moving the Image to right...');
         marginLeft = marginLeft + 10;
         img.style.marginLeft = marginLeft + 'px';
-/*    }
+    }
     else{
         hitRight = 1;
         hitLeft = 0;
     }
-    if (parseInt(img.style.marginLeft) > 50 && hitRight == 1 && hitLeft === 0) {
+    if (marginLeft > 50 && hitRight == 1 && hitLeft === 0) {
         console.log('Moving the Image to Left...');
         marginLeft = marginLeft - 10;
         img.style.marginLeft = marginLeft + 'px';
@@ -28,7 +28,7 @@ function moveRight () {
     else{
         hitRight = 0;
         hitLeft = 1;
-    }*/
+    }
 }
 
 img.onclick = function () {
