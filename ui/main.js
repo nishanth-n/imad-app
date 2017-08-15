@@ -13,7 +13,7 @@ function moveRight () {
 //    console.log(margin);
     if (marginLeft < 800 && hitRight === 0 && hitLeft == 1){
 //        console.log('Moving the Image to right...');
-        marginLeft = marginLeft + 5;
+        marginLeft = marginLeft + 1;
         img.style.marginLeft = marginLeft + 'px';
     }
     else{
@@ -22,7 +22,7 @@ function moveRight () {
     }
     if (marginLeft > -1000 && hitRight == 1 && hitLeft === 0) {
         console.log('Moving the Image to Left...');
-        marginLeft = marginLeft - 10;
+        marginLeft = marginLeft - 1;
         img.style.marginLeft = marginLeft + 'px';
     }
     else{
