@@ -5,11 +5,11 @@ var img = document.getElementById('madi');
 var marginLeft = 0;
 
 function moveRight () {
-    if (marginLeft < device-width){
+    if (marginRight < 50){
         marginLeft = marginLeft + 1;
         img.style.marginLeft = marginLeft + 'px';
     }
-    else{
+    else if (marginLeft < 50) {
         marginLeft = marginLeft - 1;
         img.style.marginLeft = marginLeft + 'px';
 
