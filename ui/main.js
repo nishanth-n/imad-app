@@ -1,6 +1,6 @@
 console.log('Loaded!');
 
-var img = document.getElementbyId("madi");
+var img = document.getElementById('madi');
 
 var marginLeft = 0;
 
