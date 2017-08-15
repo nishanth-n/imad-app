@@ -5,11 +5,11 @@ var img = document.getElementById('madi');
 var marginLeft = 0;
 
 function moveRight () {
-    if (marginRight < 50){
+    if (img.style.marginRight < 50){
         marginLeft = marginLeft + 1;
         img.style.marginLeft = marginLeft + 'px';
     }
-    else if (marginLeft < 50) {
+    else if (img.style.marginLeft < 50) {
         marginLeft = marginLeft - 1;
         img.style.marginLeft = marginLeft + 'px';
 
