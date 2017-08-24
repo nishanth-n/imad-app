@@ -134,7 +134,15 @@ app.get('/submit-name', function (req, res) {
 });
 
 
-app.get('/:articleName', function (req, res) {
+app.get('/articles/:articleName', function (req, res) {
+    pool.query("SELECT * FROM article WHERE title = " + req.params.articleName, function(err, res){
+        if(err) {
+            res.status(500).send(err.toString());
+        } else {
+            var articleData = result.rows[0];
+            res.send(createTemplate(articleData));
+        }
+    });
   var articleName = req.params.articleName;
   res.send(createTemplate(articles[articleName]));
 });
