@@ -139,7 +139,7 @@ app.get('/articles/:articleName', function (req, res) {
     article_to_fetch = req.params.articleName;
     console.log(article_to_fetch);
     
-    pool.query("SELECT * FROM article WHERE title = " + req.params.articleName, function(err, res){
+    pool.query("SELECT * FROM article WHERE title = " + article_to_fetch, function(err, res){
         if(err) {
             res.status(500).send(err.toString());
         } else {
@@ -147,8 +147,8 @@ app.get('/articles/:articleName', function (req, res) {
             res.send(createTemplate(articleData));
         }
     });
- // var articleName = req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
+//  var articleName = req.params.articleName;
+//  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
