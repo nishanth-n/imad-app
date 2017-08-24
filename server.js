@@ -120,7 +120,7 @@ app.get('/test-db', function(req, res) {
         else{
             res.send(JSON.stringify(result));
         }
-    })
+    });
 });
 
 var names = [];
@@ -144,7 +144,7 @@ app.get('/articles/:articleName', function (req, res) {
             res.status(500).send(err.toString());
         } else {
             var articleData = result.rows[0];
-            console.log(articleData)
+            console.log(articleData);
             res.send(createTemplate(articleData));
         }
     });
