@@ -135,6 +135,11 @@ app.get('/submit-name', function (req, res) {
 
 
 app.get('/articles/:articleName', function (req, res) {
+    
+    article_to_fetch = req.params.articleName;
+    article_to_fetch = article_to_fetch.split('|');
+    console.log(article_to_fetch);
+    
     pool.query("SELECT * FROM article WHERE title = " + req.params.articleName, function(err, res){
         if(err) {
             res.status(500).send(err.toString());
