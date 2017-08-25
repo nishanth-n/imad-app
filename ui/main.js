@@ -58,9 +58,11 @@ login_submit.onclick = function () {
                 login_message_label.style.visibility = 'visible';
 
             } else if (request.status === 403) {
-                alert('Username/Password is incorrect.');
+                alert('Username incorrect.');
             } else if (request.status === 500) {
                 alert('Something went wrong.');
+            } else if (request.status === 999) {
+                alert('Password is incorrect.');
             }
 //                var names = request.responseText;
 //                names = JSON.parse(names);
