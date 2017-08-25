@@ -57,6 +57,15 @@ login_submit.onclick = function () {
                 var login_message_label = document.getElementById('login_message');
                 login_message_label.style.visibility = 'visible';
 
+                var articles = request.responseText;
+                articles = JSON.parse(articles);
+                var list = '';
+                for (var i = 0; i < articles.length; i++) {
+                    list += "<li>" + articles[i] + " " + articles[i] + "</li>";
+                }
+                var ul = document.getElementById('article-list');
+                ul.innerHTML = list;
+            }
             } else if (request.status === 403) {
                 alert('Username incorrect.');
             } else if (request.status === 500) {
@@ -64,15 +73,6 @@ login_submit.onclick = function () {
             } else if (request.status === 999) {
                 alert('Password is incorrect.');
             }
-//                var names = request.responseText;
-//                names = JSON.parse(names);
-//                var list = '';
-//                for (var i = 0; i < names.length; i++) {
-//                    list += "<li>" + names[i] + "</li>";
-//                }
-//                var ul = document.getElementById('namelist');
-//                ul.innerHTML = list;
-//            }
         }
     };
     
