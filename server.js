@@ -117,7 +117,7 @@ app.post('/login', function (req, res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if(hashedPassword === dbString) {
-                    res.send("/");
+                    res.send("/articles/article-one");
                 }
             }
         }
