@@ -61,7 +61,7 @@ login_submit.onclick = function () {
                 articles = JSON.parse(articles);
                 var list = '';
 //                for (var i = 0; i < articles.length; i++) {
-                    list += "<li>" + articles.title + " " + articles.date + "</li>";
+                    list += "<li>" + articles.title + " " + articles.date.toDateString() + "</li>";
 //                }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
