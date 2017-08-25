@@ -111,13 +111,15 @@ app.post('/login', function (req, res) {
             res.status(500).send(err.toString());
         } else {
             if (result.rows.length === 0) {
-                res.send(403).send('Username/Password is invalid');
+                res.send(403).send('Username is invalid');
             } else {
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if(hashedPassword === dbString) {
-                    res.send("/articles/article-one");
+                    res.send("User logged in successfully.");
+                } else {
+                    res.send(999).send('Password is invalid');
                 }
             }
         }
