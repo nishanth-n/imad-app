@@ -15,57 +15,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    'article-one' : {
-        title: 'Article One | Nishanth Kumar Nedunuri',
-        heading: 'Article One',
-        date: 'Aug 15, 2017',
-        content: `
-            <p>
-                This is the first article. This page contains the content of Article One.
-            </p>
-            <p>
-                This is the first article. This page contains the content of Article One.
-            </p>
-            <p>
-                This is the first article. This page contains the content of Article One.
-            </p>
-        `
-    },
-    'article-two' : {
-        title: 'Article Two | Nishanth Kumar Nedunuri',
-        heading: 'Article Two',
-        date: 'Aug 16, 2017',
-        content: `
-            <p>
-                This is the second article. This page contains the content of Article Two.
-            </p>
-            <p>
-                This is the second article. This page contains the content of Article Two.
-            </p>
-            <p>
-                This is the second article. This page contains the content of Article Two.
-            </p>
-        `
-    },
-    'article-three' : {
-        title: 'Article Three | Nishanth Kumar Nedunuri',
-        heading: 'Article Three',
-        date: 'Aug 17, 2017',
-        content: `
-            <p>
-                This is the third article. This page contains the content of Article Three.
-            </p>
-            <p>
-                This is the third article. This page contains the content of Article Three.
-            </p>
-            <p>
-                This is the third article. This page contains the content of Article Three.
-            </p>
-        `
-    }
-};
-
 function createTemplate (data) {
     var title = data.title;
     var heading = data.heading;
@@ -91,7 +40,7 @@ function createTemplate (data) {
                         ${heading}
                     </h3>
                     <div>
-                        ${date}
+                        ${date.toDataString()}
                     </div>
                     <div>
                         ${content}
