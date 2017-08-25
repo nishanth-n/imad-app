@@ -60,8 +60,8 @@ login_submit.onclick = function () {
                 var articles = request.responseText;
                 articles = JSON.parse(articles);
                 var list = '';
-                for (var i in articles) {
-                    list += "<li>" + articles[0].title + " " + articles[0].date + "</li>";
+                for (var i = 0; i < articles.length; i++) {
+                    list += "<li>" + articles[i].title + " " + articles[i].date + "</li>";
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
