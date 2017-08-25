@@ -59,7 +59,7 @@ login_submit.onclick = function () {
 
                 var articles = request.responseText;
                 alert('Articles are ' + articles);
-                alert('Articles are ' + articles[0];
+                alert('Articles are ' + articles[0]);
                 articles = JSON.parse(articles);
                 alert('Articles are ' + articles[0]);
                 var list = '';
