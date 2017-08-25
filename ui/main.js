@@ -45,8 +45,18 @@ login_submit.onclick = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 alert('Logged in successfully.');
-                var login_section = document.getElementById('login_section');
-                login_section.style.visibility = 'hidden';
+                var username_label = document.getElementById('username');
+                username_label.style.visibility = 'hidden';
+                var password_label = document.getElementById('password');
+                password_label.style.visibility = 'hidden';
+                var login_label = document.getElementById('login_button');
+                login_label.style.visibility = 'hidden';
+                var register_label = document.getElementById('register_button');
+                register_label.style.visibility = 'hidden';
+
+                var login_message_label = document.getElementById('login_message');
+                login_message_label.style.visibility = 'visible';
+
             } else if (request.status === 403) {
                 alert('Username/Password is incorrect.');
             } else if (request.status === 500) {
