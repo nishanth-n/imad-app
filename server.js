@@ -134,22 +134,22 @@ app.get('/submit-name', function (req, res) {
 });
 
 
-app.get('/articles', function (req, res) {
+app.get('/articles/:articleName', function (req, res) {
     
     article_to_fetch = req.params.articleName;
     console.log("Article to Fetch " + article_to_fetch);
     
-    pool.query("SELECT * FROM articles where id = 1", function(err, res){
-        if(err) {
-            res.status(500).send(err.toString());
-        } else {
-            var articleData = result.rows[0];
-            console.log(articleData);
-            res.send(createTemplate(articleData));
-       }
-    });
-//  var articleName = req.params.articleName;
-//  res.send(createTemplate(articles[articleName]));
+//    pool.query("SELECT * FROM articles where id = 1", function(err, res){
+//        if(err) {
+//            res.status(500).send(err.toString());
+//        } else {
+//            var articleData = result.rows[0];
+//            console.log(articleData);
+//            res.send(createTemplate(articleData));
+//       }
+//    });
+  var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
