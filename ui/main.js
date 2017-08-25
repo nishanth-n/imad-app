@@ -73,7 +73,7 @@ login_submit.onclick = function () {
             } else if (request.status === 999) {
                 alert('Password is incorrect.');
             }
-        }
+        };
     };
     
     var username = document.getElementById('username').value;
