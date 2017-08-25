@@ -105,6 +105,8 @@ app.get('/articles/:articleName', function (req, res) {
                 }
            }
         });
+    } else {
+        res.status(404).send('You are not authorized to this page.');
     }
 });
 
