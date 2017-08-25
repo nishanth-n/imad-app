@@ -65,7 +65,6 @@ login_submit.onclick = function () {
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
-            }
             } else if (request.status === 403) {
                 alert('Username incorrect.');
             } else if (request.status === 500) {
@@ -73,7 +72,7 @@ login_submit.onclick = function () {
             } else if (request.status === 999) {
                 alert('Password is incorrect.');
             }
-        };
+        }
     };
     
     var username = document.getElementById('username').value;
