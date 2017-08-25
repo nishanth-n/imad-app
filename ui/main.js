@@ -60,9 +60,9 @@ login_submit.onclick = function () {
                 var articles = request.responseText;
                 articles = JSON.parse(articles);
                 var list = '';
-//                for (var i = 0; i < articles.length; i++) {
-                    list += "<li>" + articles.title + " " + articles.date.toDateString() + "</li>";
-//                }
+                for (var i in articles) {
+                    list += "<li>" + articles[i].title + " " + articles[i].date + "</li>";
+                }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
             } else if (request.status === 403) {
