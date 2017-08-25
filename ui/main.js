@@ -83,7 +83,7 @@ register_submit.onclick = function () {
             } else if (request.status === 403) {
                 alert('Username/Password is empty.');
             } else if (request.status === 500) {
-                alert('Something went wrong.');
+                alert('Something went wrong from the server.');
             }
         }
     };
