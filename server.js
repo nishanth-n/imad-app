@@ -122,7 +122,7 @@ app.post('/login', function (req, res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if(hashedPassword === dbString) {
-                    req.session.auth = {userId: result.rows[0].username};
+                    req.session.auth = {userId: result.rows[0].id};
                     pool.query("SELECT title, date FROM articles", function(err, result){
                         if(err) {
                             res.status(500).send(err.toString());
