@@ -61,7 +61,7 @@ login_submit.onclick = function () {
                 articles = JSON.parse(articles);
                 var list = '';
                 for (var i = 0; i < articles.length; i++) {
-                    list += "<li>" + articles[i].title + " " + articles[i].date + "</li>";
+                    list += "<li>" + "<a href>" + articles[i].title + "</a>" + " " + articles[i].date + "</li>";
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
