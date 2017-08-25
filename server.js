@@ -117,7 +117,18 @@ app.post('/login', function (req, res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if(hashedPassword === dbString) {
-                    res.send("User logged in successfully.");
+                    pool.query("SELECT title, date FROM articles", function(err, result){
+                        if(err) {
+                            res.status(500).send(err.toString());
+                        } else {
+                            if (result.rows.length === 0) {
+                                res.status(404).send('Article not found');
+                            } else {
+                                var articleData = result.rows[0];
+                                res.send(articleData);
+                            }
+                        }
+                    });
                 } else {
                     res.send(999).send('Password is invalid');
                 }
