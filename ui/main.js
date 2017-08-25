@@ -58,11 +58,11 @@ login_submit.onclick = function () {
                 login_message_label.style.visibility = 'visible';
 
                 var articles = request.responseText;
-                articles = JSON.parse(articles);
+//                articles = JSON.parse(articles);
                 alert('Articles are ' + articles);
                 var list = '';
                 for (var i = 0; i < articles.length; i++) {
-                    list += "<li>" + articles[i] + " " + articles[i] + "</li>";
+                    list += "<li>" + articles[i] + " " + articles + "</li>";
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
