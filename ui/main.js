@@ -46,7 +46,7 @@ login_submit.onclick = function () {
             if (request.status === 200) {
                 alert('Logged in successfully.');
             } else if (request.status === 403) {
-                alert('Username/Passwork is incorrect.');
+                alert('Username/Password is incorrect.');
             } else if (request.status === 500) {
                 alert('Something went wrong.');
             }
