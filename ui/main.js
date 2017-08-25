@@ -80,6 +80,8 @@ register_submit.onclick = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 alert('User Registered Successfully.');
+                var login_section = document.getElementById('login-section');
+                login_section.style.visibility = 'hidden';
             } else if (request.status === 403) {
                 alert('Username/Password is empty.');
             } else if (request.status === 500) {
