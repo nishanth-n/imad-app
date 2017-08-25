@@ -58,10 +58,8 @@ login_submit.onclick = function () {
                 login_message_label.style.visibility = 'visible';
 
                 var articles = request.responseText;
-                alert('Articles are ' + articles);
-                alert('Articles are ' + articles[0]);
                 articles = JSON.parse(articles);
-                alert('Articles are ' + articles[0]);
+                alert('Articles are ' + articles);
                 var list = '';
                 for (var i = 0; i < articles.length; i++) {
                     list += "<li>" + articles[i] + " " + articles[i] + "</li>";
