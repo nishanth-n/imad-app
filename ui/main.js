@@ -62,7 +62,7 @@ login_submit.onclick = function () {
                 for (var i = 0; i < articles.length; i++) {
                     var rg=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\..*/g;
                     var dateStr=articles[i].date.replace(rg,"$3-$2-$1");
-                    list += "<li>" + "<a href>" + articles[i].title + "</a>" + " " + dateStr + "</li>";
+                    list += "<li>" + "<a href=/articles/:" + articles[i].title + ">" + articles[i].title + "</a>" + " " + dateStr + "</li>";
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
