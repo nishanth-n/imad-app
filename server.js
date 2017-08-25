@@ -148,8 +148,8 @@ app.get('/articles', function (req, res) {
             res.send(createTemplate(articleData));
         }
     });
-//  var articleName = req.params.articleName;
-//  res.send(createTemplate(articles[articleName]));
+  var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
