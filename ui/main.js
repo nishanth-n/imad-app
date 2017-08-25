@@ -36,9 +36,9 @@ img.onclick = function () {
     var interval = setInterval(moveRight, 50);
 };
 
-var submit = document.getElementById('login_button');
+var login_submit = document.getElementById('login_button');
 
-submit.onclick = function () {
+login_submit.onclick = function () {
     var request = new XMLHttpRequest();
     
     request.onreadystatechange = function () {
@@ -67,6 +67,34 @@ submit.onclick = function () {
     console.log(username);
     console.log(password);
     request.open('POST', 'http://nishanthnitw14.imad.hasura-app.io/login', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
+};
+
+var register_submit = document.getElementById('register_button');
+
+register_submit.onclick = function () {
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                alert('User Registered Successfully.');
+            } else if (request.status === 403) {
+                alert('Username/Password is empty.');
+            } else if (request.status === 500) {
+                alert('Something went wrong.');
+            }
+        }
+    };
+    
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    console.log(username);
+    console.log(password);
+
+    request.open('POST', 'http://nishanthnitw14.imad.hasura-app.io/register', true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify({username: username, password: password}));
 };
