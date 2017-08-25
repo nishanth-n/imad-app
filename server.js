@@ -122,7 +122,7 @@ app.post('/login', function (req, res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if(hashedPassword === dbString) {
-                    req.session.auth = {userId: result.rows[0].id};
+                    req.session.auth = {userId: result.rows[0].username};
                     pool.query("SELECT title, date FROM articles", function(err, result){
                         if(err) {
                             res.status(500).send(err.toString());
@@ -149,6 +149,11 @@ app.get('/check-login', function(req, res) {
     } else {
         res.send('You are not logged in');
     }
+});
+
+app.get('/logout', function(req, res) {
+    delete req.session.auth;
+    res.send('Logged out.');
 });
 
 function hash (input, salt) {
