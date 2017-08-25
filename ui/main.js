@@ -58,12 +58,10 @@ login_submit.onclick = function () {
                 login_message_label.style.visibility = 'visible';
 
                 var articles = request.responseText;
-                alert('Articles are ' + articles);
                 articles = JSON.parse(articles);
-                alert('Articles are ' + articles.title);
                 var list = '';
                 for (var i = 0; i < articles.length; i++) {
-                    list += "<li>" + articles[i] + " " + articles + "</li>";
+                    list += "<li>" + articles.title + " " + articles.date.toDateString() + "</li>";
                 }
                 var ul = document.getElementById('article-list');
                 ul.innerHTML = list;
