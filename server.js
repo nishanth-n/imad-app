@@ -97,8 +97,28 @@ app.get('/articles/:articleName', function (req, res) {
             }
        }
     });
-//  var articleName = req.params.articleName;
-//  res.send(createTemplate(articles[articleName]));
+});
+
+app.post('/login', function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    pool.query('SELECT * FROM "user" WHERE username = $1', [username], function(err, result) {
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            if (result.rows.length === 0) {
+                res.send(403).send('Username/Password is invalid');
+            } else {
+                var dbString = result.rows[0].password;
+                var salt = dbString.split('$')[2];
+                var hashedPassword = hash(password, salt);
+                if(hashedPassword === dbString) {
+                    res.send("/");
+                }
+            }
+        }
+    });
 });
 
 app.get('/ui/style.css', function (req, res) {
